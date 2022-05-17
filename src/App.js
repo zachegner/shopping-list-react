@@ -4,6 +4,12 @@ import { useState, useEffect } from 'react'
 import Search from './components/Search';
 import Header from './components/Header';
 import ItemsList from './components/ItemsList'
+import { Amplify, Auth } from 'aws-amplify';
+import { Authenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
 
 
 function App() {
@@ -61,6 +67,8 @@ function App() {
   }
 
   return (
+    <Authenticator>
+      {({ signOut, user }) => (
     <>
       <div className={`${darkMode && 'dark-mode'}`}>
         <div className="container">
@@ -72,9 +80,12 @@ function App() {
 
         </div>
       </div>
+      <button onClick={signOut}>Sign out</button>
 
       {/* <Form /> */}
     </>
+    )}
+    </Authenticator>
 
   );
 }
