@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Search from './components/Search';
 import Header from './components/Header';
 import ItemsList from './components/ItemsList'
-import { Amplify, Auth } from 'aws-amplify';
+import { Amplify } from 'aws-amplify'
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
